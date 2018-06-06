@@ -1,0 +1,10 @@
+/**index.wxss**/
+.banner{
+  display: block;
+  width: 100%;
+}
+.banner-item .banner-item-img{
+  display: block;
+  width: 100%;
+  height: auto;
+}

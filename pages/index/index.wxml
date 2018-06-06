@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+  <swiper class="banner" 
+  wx:if="{{banner.carousel_pictures.length > 0}}" 
+  style="height:{{banner.swiperH}}" 
+  indicator-dots="{{banner.indicatorDots}}"
+  indicator-color="{{banner.indicatorColor}}"
+  indicator-active-color="{{banner.indicatorActiveColor}}"
+  autoplay="{{banner.autoplay}}"
+  interval="{{banner.interval}}"
+  >
+    <swiper-item 
+      class="banner-item"
+      wx:for="{{banner.carousel_pictures}}"
+      wx:key="{{item.id}}"
+      item-id="{{item.link}}"
+      >
+      <image bindload="imgH" mode="widthFix" class="banner-item-img" src="{{item.medium_picture}}"></image> 
+    </swiper-item>
+  </swiper>
+</view>
