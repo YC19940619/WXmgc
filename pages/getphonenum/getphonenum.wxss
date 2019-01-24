@@ -1,0 +1,138 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    background: #f1f1f1;
+}
+.nav{
+    display: none;
+    width: 100%;
+    height: 50rpx;
+    /*display: flex;*/
+    justify-content: space-around;
+}
+.nav text{
+    font-size: 24rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    border-bottom: none;
+    color: #333;
+}
+.nav text.active{
+    color: #c88d6d;
+    border-bottom: 1px solid #c88d6d;
+}
+.getphone{
+    display: none;
+}
+.getphone.active{
+    display: block;
+}
+.content{
+    flex: 1;
+}
+.logo{
+    display: block;
+    width: 200rpx;
+    height: 200rpx;
+    margin: 100rpx auto 30rpx;
+    border-radius: 50%;
+    box-shadow: 0 2rpx 2rpx #c88d6d;
+}
+.getphone:nth-child(2) .logo{
+    margin-top: 50rpx;
+}
+.title{
+    text-align: center;
+    font-size: 32rpx;
+}
+.getphonenumbtn{
+    width: 80%;
+    background: #c88d6d;
+    color: #fff;
+}
+.notice{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600rpx;
+    height: 150rpx;
+    background: #fff;
+    margin: 150rpx auto;
+    font-size: 28rpx;
+    padding: 20rpx;
+    border-radius:10rpx;
+    position: relative;
+}
+.notice::after{
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-color: transparent transparent #fff;
+    border-width: 20rpx;
+    top: -38rpx;
+    left: 50%;
+    margin-left: -10rpx;
+}
+/*.notice::before{*/
+    /*content: "";*/
+    /*position: absolute;*/
+    /*border-style: solid;*/
+    /*border-color: #000 transparent transparent;*/
+    /*border-width: 10px;*/
+    /*bottom: 29px;*/
+    /*right:40px;*/
+    /*z-index: 9;*/
+/*}*/
+.entry{
+    width: 600rpx;
+    margin: 100rpx auto 200rpx;
+}
+.entry text{
+    height: 50rpx;
+    line-height: 60rpx;
+    color: #b4b4b4;
+    font-size: 24rpx;
+}
+.entry .phonenum input{
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    background: #cdcdcd;
+    color: #a1a1a1;
+    font-size: 24rpx;
+    border-radius: 10rpx;
+    padding-left: 24rpx;
+    box-sizing: border-box;
+}
+.verificationcodebox{
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.verificationcodebox input{
+    flex: 1;
+    padding-left: 24rpx;
+    box-sizing: border-box;
+    font-size: 24rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-top-left-radius: 10rpx;
+    border-bottom-left-radius: 10rpx;
+    background: #cdcdcd;
+    color: #a1a1a1;
+}
+.verificationcodebox button{
+    font-size: 24rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #fff;
+    background: #c88d6d;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.hover{
+    opacity: 0.5;
+}

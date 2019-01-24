@@ -1,0 +1,101 @@
+<!--index.wxml-->
+<view class="container">
+   <view class="nav">
+      <text class="{{index==0?'active':''}}" bindtap="togglenav" data-index="0">可用</text>
+      <text class="{{index==1?'active':''}}" bindtap="togglenav" data-index="1">已使用</text>
+      <text class="{{index==2?'active':''}}" bindtap="togglenav" data-index="2">过期</text>
+   </view>
+   <swiper class="content" current="{{index}}" bindchange="toggleswiper">
+      <swiper-item>
+         <scroll-view scroll-y="true" class="scroll" wx:if="{{avaliablelist.length>0}}">
+            <view class="list">
+               <view
+                       class="item {{item.usestatus?'active':''}}"
+                       wx:for="{{avaliablelist}}"
+                       wx:key="{{item.user_coupon_id}}"
+                       data-user_coupon_id="{{item.user_coupon_id}}"
+                       data-usestatus="{{item.usestatus}}"
+                       data-index="{{index}}"
+                       bindtap="gouse"
+               >
+                  <!--<image src="{{item.pics[0]}}" mode="widthFix">-->
+                  <!--</image>-->
+                  <view class="title">{{item.title}}</view>
+                  <view class="desc">{{item.coupon_desc}}</view>
+                  <view class="time">有效期：{{item.start_time}}-{{item.end_time}}</view>
+                  <view class="reduce">满{{item.reduce_limit}}元减{{item.reduce_price}}元</view>
+                  <view class="gouse" >
+                     <block wx:if="{{item.usestatus}}">去使用</block>
+                     <block wx:else>不可用</block>
+                  </view>
+               </view>
+            </view>
+         </scroll-view>
+         <view wx:else>
+            <image class="kongimg" src="../../common/img/coupon/kongcoupon.png" mode="widthFix">
+            </image>
+            <view class="kongtext">暂无此类优惠券~</view>
+         </view>
+      </swiper-item>
+      <swiper-item>
+         <scroll-view scroll-y="true" class="scroll" wx:if="{{usedlist.length>0}}">
+            <view class="list">
+               <view
+                       class="item {{item.usestatus?'active':''}}"
+                       wx:for="{{usedlist}}"
+                       wx:key="{{item.user_coupon_id}}"
+                       data-user_coupon_id="{{item.user_coupon_id}}"
+                       data-usestatus="{{item.usestatus}}"
+                       data-index="{{index}}"
+               >
+                  <!--<image src="{{item.pics[0]}}" mode="widthFix">-->
+                  <!--</image>-->
+                  <view class="title">{{item.title}}</view>
+                  <view class="desc">{{item.coupon_desc}}</view>
+                  <view class="time">有效期：{{item.start_time}}-{{item.end_time}}</view>
+                  <view class="reduce">满{{item.reduce_limit}}元减{{item.reduce_price}}元</view>
+                  <view class="gouse" >
+                     <block wx:if="{{item.usestatus}}">去使用</block>
+                     <block wx:else>不可用</block>
+                  </view>
+               </view>
+            </view>
+         </scroll-view>
+         <view wx:else>
+            <image class="kongimg" src="../../common/img/coupon/kongcoupon.png" mode="widthFix">
+            </image>
+            <view class="kongtext">暂无此类优惠券~</view>
+         </view>
+      </swiper-item>
+      <swiper-item>
+         <scroll-view scroll-y="true" class="scroll" wx:if="{{timeoutlist.length>0}}">
+            <view class="list">
+               <view
+                       class="item {{item.usestatus?'active':''}}"
+                       wx:for="{{timeoutlist}}"
+                       wx:key="{{item.user_coupon_id}}"
+                       data-user_coupon_id="{{item.user_coupon_id}}"
+                       data-usestatus="{{item.usestatus}}"
+                       data-index="{{index}}"
+               >
+                  <!--<image src="{{item.pics[0]}}" mode="widthFix">-->
+                  <!--</image>-->
+                  <view class="title">{{item.title}}</view>
+                  <view class="desc">{{item.coupon_desc}}</view>
+                  <view class="time">有效期：{{item.start_time}}-{{item.end_time}}</view>
+                  <view class="reduce">满{{item.reduce_limit}}元减{{item.reduce_price}}元</view>
+                  <view class="gouse" >
+                     <block wx:if="{{item.usestatus}}">去使用</block>
+                     <block wx:else>已过期</block>
+                  </view>
+               </view>
+            </view>
+         </scroll-view>
+         <view wx:else>
+            <image class="kongimg" src="../../common/img/coupon/kongcoupon.png" mode="widthFix">
+            </image>
+            <view class="kongtext">暂无此类优惠券~</view>
+         </view>
+      </swiper-item>
+   </swiper>
+</view>

@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -9,7 +9,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
-	"appid": "wx432e28cb7b1a5037",
+	"appid": "wx9aa0cdc0bfe1cb13",
 	"projectname": "WXmgc",
 	"isGameTourist": false,
 	"condition": {
@@ -21,13 +21,90 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 11,
+			"list": [
+				{
+					"id": 0,
+					"name": "shoppingcar",
+					"pathName": "pages/shoppingcar/shoppingcar",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "确认订单",
+					"pathName": "pages/firmorder/firmorder",
+					"query": "shopids=[1887,1885,1766,1765,1763]"
+				},
+				{
+					"id": -1,
+					"name": "收货地址列表",
+					"pathName": "pages/addresslist/addresslist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "管理收获地址",
+					"pathName": "pages/manageaddress/manageaddress",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "bianiji收获地址",
+					"pathName": "pages/editaddress/editaddress",
+					"query": "address_id=51"
+				},
+				{
+					"id": -1,
+					"name": "关于我们",
+					"pathName": "pages/about/about",
+					"query": "address_id=51"
+				},
+				{
+					"id": -1,
+					"name": "手机号",
+					"pathName": "pages/getphonenum/getphonenum",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/orderlist/orderlist",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "订单详情",
+					"pathName": "pages/orderdetails/orderdetails",
+					"query": "order_serial_number=2018090798676195"
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/orderdetails/orderdetails",
+					"query": " order_serial_number=2018090644675255 "
+				},
+				{
+					"id": -1,
+					"name": "优惠券",
+					"pathName": "pages/coupon/coupon",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": ""
+				}
+			]
 		}
 	}
 }

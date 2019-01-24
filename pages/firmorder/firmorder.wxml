@@ -1,0 +1,122 @@
+<view class="container">
+    <view class="content">
+        <view class="address" bindtap="goAddress">
+            <block wx:if="{{!address}}">
+                请选择收货地址
+            </block>
+            <block wx:else>
+                <view class="left">
+                    <image src="../../common/img/address/address.png" mode="widthFix">
+                    </image>
+                </view>
+                <view class="center">
+                    <view class="person">
+                        <text class="receiver">{{address.receiver}}</text>
+                        <text class="phone_num">{{address.phone_num}}</text>
+                    </view>
+                    <view class="detail_address">{{address.province}} {{address.detail_address}}</view>
+                </view>
+                <view class="right">
+                    <image src="../../common/img/common/goto.png" mode="widthFix">
+                    </image>
+                </view>
+            </block>
+        </view>
+        <view class="list">
+            <view class="item"
+                  wx:for="{{list}}"
+                  wx:key="{{item.id}}"
+                  wx:for-index="parent_index"
+                  data-spuid="{{item.sku.spu.id}}"
+                  data-olddata="{{item.sku.threedfileparams[0].params}}"
+            >
+                <view class="top">
+                    <view class="left">
+                        <image
+                                mode="widthFix"
+                                class="nocheck"
+                                src="{{item.sku.threedfileparams[0].img}}">
+                        </image>
+                    </view>
+                    <view class="center">
+                        <view class="title">{{item.sku.spu.name}}<view class="detail" data-index="{{parent_index}}" bindtap="details">详情</view></view>
+                        <view class="price">
+                            ￥{{item.sku.price}}
+                            <view class="num">
+                                x {{item.quantity}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="bottom  {{detailsTab == parent_index ? 'active' : ''}}">
+                    <view  wx:for="{{item.sku.attributes_values}}"
+                           wx:key="{{index}}"
+                           wx:for-item="option"
+                           class="option"
+                    >
+                        <view class="left">{{option.attribute.name}}：</view>
+                        <view class="right">
+                            <block wx:if="{{option.attribute_value}}">
+                                {{option.attribute_value.name}}
+                                <image
+                                        style="width:{{option.imgW}};height:{{option.imgH}};"
+                                        mode="aspectFit"
+                                        data-parent_index="{{parent_index}}"
+                                        data-child_index="{{index}}"
+                                        bindload="imgW"
+                                        wx:if="option.attribute_value.img"
+                                        src="{{option.attribute_value.img}}">
+                                </image>
+                            </block>
+                            <block wx:elif="option.manually_attribute_value.name==='定制内容'" >
+                                <block wx:for="{{option.manually_attribute_value.name}}" wx:key="index">
+                                    <image mode="aspectFit" style="width:{{imgH}}rpx;height:{{imgH}}rpx;margin-left:0;"
+                                           wx:if="{{item.door}}"
+                                           src="{{item.name}}">
+                                    </image>
+                                    <block wx:else>
+                                        {{item.name}}
+                                    </block>
+                                </block>
+                            </block>
+                            <block wx:else >
+                                {{option.manually_attribute_value.name}}
+                                <image
+                                        style="width:{{option.imgW}};height:{{option.imgH}};"
+                                        mode="aspectFit"
+                                        data-load="{{index}}"
+                                        bindload="imgW"
+                                        wx:if="option.manually_attribute_value.img"
+                                        src="{{option.manually_attribute_value.img}}">
+                                </image>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="totalPrice info">
+            <text class="left">商品总额</text>
+            <text class="right">￥{{totalPrice}}</text>
+        </view>
+        <view class="sendStyle info">
+            <text class="left">配送方式</text>
+            <text class="right">快递 免邮</text>
+        </view>
+        <view class="coupon info" bindtap="changecoupon">
+            <text class="left">优惠券</text>
+            <text class="right">
+                <block wx:if="{{coupon.title}}">已使用1张，共抵扣 ￥{{coupon.reduce_price}}</block>
+                <block wx:else>选择优惠券</block>
+            </text>
+        </view>
+    </view>
+    <view class="submitOrder">
+        <view class="left">
+            <text>应付：</text>￥{{needpay}}
+        </view>
+        <view class="right" bindtap="goorder">
+            去付款
+        </view>
+    </view>
+</view>

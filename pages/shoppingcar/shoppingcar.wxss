@@ -1,0 +1,289 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+.edit{
+  line-height: 100rpx;
+  text-align: right;
+  box-sizing: border-box;
+  padding-right: 30rpx;
+  color: #c88d6d;
+  font-size: 28rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.list{
+  width: 100%;
+  height: 500rpx;
+  flex: 1;
+  padding:20rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.box{
+  width: 100%;
+  height: 100%;
+  overflow:hidden;
+
+}
+.box image{
+  display: block;
+  width: 250rpx;
+  margin: 100rpx auto 50rpx;
+}
+.box view{
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #c88d6d;
+  font-size: 28rpx;
+  text-align: center;
+  margin-bottom: 50rpx;
+}
+.box button{
+  display: block;
+  margin: 0 auto;
+  width: 200rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height:70rpx;
+  background: #c88d6d;
+  color: #fff;
+}
+.settlement{
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  box-shadow: 0 -1rpx 10rpx #f5f5f5;
+  display: flex;
+  flex-direction: row;
+}
+.settlement .left{
+  width: 250rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 32rpx;
+}
+.settlement .left image{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 20rpx;
+}
+.settlement .center{
+  flex: 1;
+  box-sizing: border-box;
+  padding-right: 30rpx;
+}
+.settlement .center .price{
+  height: 100%;
+  line-height: 100rpx;
+  text-align: right;
+  font-size: 28rpx;
+  color: #c88d6d;
+}
+.settlement .right{
+  width: 150rpx;
+  height: 100%;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 28rpx;
+  background: #DDDDDD;
+  color: #FFFFFF;
+}
+.settlement .right.active{
+  background: #c88d6d;
+}
+.item{
+  width: 100%;
+  background: #f5f5f5;
+  box-sizing: border-box;
+  padding: 10rpx;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+
+}
+.item.remove{
+  margin-left: -100%;
+  transition: 1s;
+}
+.item .top{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: relative;
+}
+
+.item .top .content{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+}
+.item .top .content .T_L{
+  width: 80rpx;
+  height: 100%;
+}
+.item .top .content .T_L image{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 70rpx auto;
+}
+.item .top .content .T_C{
+  width: 150rpx;
+  height: 150rpx;
+  border: 1px solid #cdcdcd;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  margin: 15rpx;
+  overflow: hidden;
+}
+.item .top .content .T_C image{
+  width: 100%;
+  height: 100%;
+}
+.item .top .content .T_R{
+  flex: 1;
+  height: 150rpx;
+  margin: 15rpx 20rpx;
+}
+.item .top .content .T_R .title{
+  width: 100%;
+  height: 90rpx;
+  font-size: 28rpx;
+  position: relative;
+  box-sizing: border-box;
+  padding-right: 120rpx;
+}
+.item .top .content .T_R .title .detail{
+  width: 80rpx;
+  text-align: center;
+  line-height: 48rpx;
+  border: 1px solid #c88d6d;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  color: #c88d6d;
+  letter-spacing: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.item .top .content .T_R .price{
+  width: 100%;
+  height: 60rpx;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  color: #c88d6d;
+}
+.item .top .content .T_R .num{
+  width: 240rpx;
+  height: 60rpx;
+  float: right;
+  color: #000;
+}
+.item .top .content .T_R .num #changenum{
+  border-radius: 0px;
+  width: 120rpx;
+  height: 60rpx;
+  float: left;
+  background: none;
+  color: #000;
+  text-align: center;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-top: 1px solid #f3f3f3;
+  border-bottom: 1px solid #f3f3f3;
+  background: #fff;
+}
+.item .top .content .T_R .num .iconfont.highlight {
+  color: #dddddd;
+}
+.item .top .content .T_R .num .iconfont {
+  float: left;
+  height: 60rpx;
+  width: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  position: relative;
+  background: #c88d6d;
+  color: #fff;
+}
+.item .top .content .T_R .num .iconfont::before {
+  content: " ";
+  display: block;
+  height: 60rpx;
+  width: 20rpx;
+  position: absolute;
+  left: -20rpx;
+  top: 0;
+}
+.item .top .content .T_R .num .iconfont::after {
+  content: " ";
+  display: block;
+  height: 60rpx;
+  width: 20rpx;
+  position: absolute;
+  right: -20rpx;
+  top: 0;
+}
+  /*删除*/
+.item .top .remove{
+  position: absolute;
+  width: 150rpx;
+  height: 100%;
+  top: 0;
+  right: -160rpx;
+  background: #c88d6d;
+  color: #fff;
+  text-align: center;
+  line-height: 180rpx;
+  font-size: 28rpx;
+}
+.item .bottom{
+  width: 100%;
+  height: 0;
+  max-height: 20rpx;
+  overflow: hidden;
+  border-top: 1px solid #e5e5e5;
+  color: #333;
+  padding: 0 10rpx;
+  transition: 1s;
+}
+.item .bottom.active{
+  height: auto;
+  max-height: 1000rpx;
+}
+.item .bottom .option{
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+  color: #c88d6d;
+}
+.item .bottom .option .left{
+  /*width: 200rpx;*/
+  height: 100%;
+  line-height: 50rpx;
+  text-align: right;
+}
+.item .bottom .option .right{
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.item .bottom .option .right text{
+  height: 100%;
+  line-height: 18rpx;
+}
+.item .bottom .right image{
+  display: block;
+  height: 30rpx;
+  width: 30rpx;
+  margin-left:10rpx;
+}

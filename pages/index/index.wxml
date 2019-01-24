@@ -1,21 +1,25 @@
-<!--index.wxml-->
-<view class="container">
-  <swiper class="banner" 
-  wx:if="{{banner.carousel_pictures.length > 0}}" 
-  style="height:{{banner.swiperH}}" 
-  indicator-dots="{{banner.indicatorDots}}"
-  indicator-color="{{banner.indicatorColor}}"
-  indicator-active-color="{{banner.indicatorActiveColor}}"
-  autoplay="{{banner.autoplay}}"
-  interval="{{banner.interval}}"
-  >
-    <swiper-item 
-      class="banner-item"
-      wx:for="{{banner.carousel_pictures}}"
-      wx:key="{{item.id}}"
-      item-id="{{item.link}}"
+<view>
+    <swiper class="banner"
+      wx:if="{{banner.carousel_pictures.length > 0}}"
+      style="height:{{banner.swiperH}}"
+      indicator-dots="{{banner.indicatorDots}}"
+      indicator-color="{{banner.indicatorColor}}"
+      indicator-active-color="{{banner.indicatorActiveColor}}"
+      autoplay="{{banner.autoplay}}"
+      interval="{{banner.interval}}"
       >
-      <image bindload="imgH" mode="widthFix" class="banner-item-img" src="{{item.medium_picture}}"></image> 
-    </swiper-item>
-  </swiper>
+        <swiper-item
+          class="banner-item"
+          wx:for="{{banner.carousel_pictures}}"
+          wx:key="{{item.id}}"
+          item-id="{{item.link}}"
+          >
+          <image bindload="imgH" mode="widthFix" class="banner-item-img" src="{{item.medium_picture}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="cus" bindtap="goMade">
+        <image mode="widthFix" class="cusimg" src="../../common/img/index/cusLeft.png"></image>
+        <image mode="aspectFit" src="../../common/img/index/cus.png"></image>
+        <image mode="aspectFit" class="cusimg" src="../../common/img/index/cusRight.png"></image>
+    </view>
 </view>

@@ -1,0 +1,35 @@
+<view class="container">
+    <view class="list" wx:if="{{addresslist.length > 0}}">
+        <view
+            class="item {{item.is_default? 'active' : ''}}"
+            wx:for="{{addresslist}}"
+            wx:key="{{item.id}}"
+            data-address_id="{{item.id}}"
+            data-index="{{index}}"
+            bindtap="changeAddress"
+        >
+            <view class="left">
+                <text class="default">默认</text>
+            </view>
+            <view class="center">
+                <view class="person">
+                    <text class="receiver">{{item.receiver}}</text>
+                    <text class="phone_num">{{item.phone_num}}</text>
+                </view>
+                <view class="detail_address">{{item.province}} {{item.detail_address}}</view>
+            </view>
+            <view class="right">
+                <!--<image class="edit" src="../../common/img/address/edit.png" mode="widthFix">-->
+                <!--</image>-->
+            </view>
+        </view>
+    </view>
+    <view wx:else class="list">
+        <image class="kongimg" src="../../common/img/address/kongaddress.png" mode="widthFix">
+        </image>
+        <view class="kongtext">暂无收货地址</view>
+    </view>
+    <view class="add" bindtap="gomanage">
+        管理我的收货地址
+    </view>
+</view>

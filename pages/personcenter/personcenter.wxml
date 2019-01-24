@@ -1,1 +1,90 @@
-personcenter
+<!--<web-view src="https://mp.weixin.qq.com/"></web-view>-->
+<view class="container">
+    <view class="userinfo" wx:if="{{userInfo != '{}'}}">
+        <image class="userinfo_bj" src="{{personbj_url}}" background-size="cover"></image>
+        <image bindtap="bindViewTap" class="userinfo_avatar" src="{{userInfo.head_image}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickname}}</text>
+        <!--<text class="userinfo-uid">{{userInfo.uid}}</text>-->
+        <!--<text class="userinfo-sex">{{userInfo.sex}}</text>-->
+        <!--<text class="userinfo-sessionid">{{userInfo.sessionid}}</text>-->
+    </view>
+    <view class="item phonenum" data-name="getphonenum"  wx:if="{{userInfo.phone_num.length>0}}">
+        <view class="left">
+            我的手机号
+        </view>
+        <view class="center">
+            {{userInfo.phone_num}}
+        </view>
+        <view class="right">
+            <image mode="widthFix" src="../../common/img/common/goto.png">
+            </image>
+        </view>
+    </view>
+    <view class="item phonenum" data-name="getphonenum" bindtap="gohref" wx:else>
+        <view class="left">
+            绑定手机号
+        </view>
+        <view class="center">
+            暂无手机号
+        </view>
+        <view class="right">
+            <image mode="widthFix" src="../../common/img/common/goto.png">
+            </image>
+        </view>
+    </view>
+    <view class="item shoppingcar" data-name="shoppingcar" bindtap="gohref">
+        <view class="left">
+            我的购物车
+        </view>
+        <view class="center">
+        </view>
+        <view class="right">
+            <image mode="widthFix" src="../../common/img/common/goto.png">
+            </image>
+        </view>
+    </view>
+    <view class="item coupon" data-name="coupon" bindtap="gocoupon">
+        <view class="left">
+            我的优惠券
+        </view>
+        <view class="center">
+        </view>
+        <view class="right">
+            <image mode="widthFix" src="../../common/img/common/goto.png">
+            </image>
+        </view>
+    </view>
+    <view class="item orderlist" data-name="orderlist"  bindtap="gohref">
+        <view class="left">
+            我的订单
+        </view>
+        <view class="center">
+        </view>
+        <view class="right">
+            <image mode="widthFix" src="../../common/img/common/goto.png">
+            </image>
+        </view>
+    </view>
+    <view class="item manageaddress" data-name="manageaddress"  bindtap="gohref">
+        <view class="left">
+            我的收货地址
+        </view>
+        <view class="center">
+        </view>
+        <view class="right">
+            <image mode="widthFix" src="../../common/img/common/goto.png">
+            </image>
+        </view>
+    </view>
+    <view class="item about" data-name="about"  bindtap="gohref">
+        <view class="left">
+            关于我们
+        </view>
+        <view class="center">
+        </view>
+        <view class="right">
+            <image mode="widthFix" src="../../common/img/common/goto.png">
+            </image>
+        </view>
+    </view>
+</view>

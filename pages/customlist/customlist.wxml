@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="item" wx:for="{{items}}" wx:key="item.id" data-spuid="{{item.id}}" bindtap="goHref">
+   <view class="left">
+       <image src="{{item.img}}" mode="widthFix"></image>
+   </view>
+   <view class="right">
+       <text class="name">{{item.name}}</text>
+       <text class="price">￥{{item.price}}起</text>
+       <button class="go">开始定制</button>
+   </view>
+</view>
+

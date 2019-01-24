@@ -1,0 +1,33 @@
+/* pages/guide/guide.wxss */
+.container{
+    overflow: scroll;
+}
+.logo{
+    display: block;
+    width: 140rpx;
+    height: 140rpx;
+    margin: 50rpx auto 50rpx;
+}
+.userinfo{
+    width: 80%;
+    background: #c88d6d;
+    color: #fff;
+}
+text{
+    width: 100%;
+    margin: 20rpx auto 20rpx;
+    display: block;
+    font-size: 28rpx;
+    text-align: center;
+}
+.describe{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0 30rpx;
+    text-indent: 56rpx;
+    line-height: 50rpx;
+    text-align: justify;
+}
+.companyName{
+    margin-bottom: 50rpx;
+}

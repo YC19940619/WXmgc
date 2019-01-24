@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+   <image class="logo" src="{{logo_image}}" background-size="cover"></image>
+   <text>随我个性珠宝申请获取您的信息</text>
+   <button class="userinfo" open-type="getUserInfo" bindgetuserinfo="getuserinfo">确认登录</button>
+</view>

@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container">
+   <image class="logo" src="{{logo_image}}" background-size="cover">
+   </image>
+   <text class="version">版本号：{{version}}</text>
+   <text class="companyName">公司名称：{{companyName}}</text>
+   <text class="describe">{{describe1}}</text>
+   <text class="describe">{{describe2}}</text>
+</view>

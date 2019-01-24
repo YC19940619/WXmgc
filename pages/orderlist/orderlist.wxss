@@ -1,0 +1,139 @@
+/* pages/guide/guide.wxss */
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.nav{
+    width: 100%;
+    height: 88rpx;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav text{
+    height: 100%;
+    font-size: 28rpx;
+    line-height: 88rpx;
+    box-sizing: border-box;
+    border-bottom: 2rpx solid #f5f5f5;
+}
+.nav text.active{
+    color: #c88d6d;
+    border-bottom: 2rpx solid #c88d6d;
+}
+.content{
+    width: 100%;
+    flex: 1;
+}
+.content .list{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 30rpx;
+}
+.content .list .scroll{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.kongtext{
+    text-align: center;
+    line-height: 50rpx;
+    font-size: 32rpx;
+}
+.kongimg{
+    display: block;
+    width: 350rpx;
+    margin: 150rpx auto 50rpx;
+}
+.list .item{
+    width: 100%;
+    background: #f5f5f5;
+    margin-bottom: 20rpx;
+    box-sizing: border-box;
+    padding:0 20rpx;
+}
+.list .top{
+    width: 100%;
+    height: 88rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding:0 30rpx;
+}
+.list .top .time{
+    font-size: 28rpx;
+}
+.list .top .order_status{
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #c88d6d;
+}
+.list .center{
+    -webkit-box-sizing: border-box;
+    padding: 20rpx 30rpx;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    height: 180rpx;
+    border-bottom: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+}
+.list .center .left{
+    width: 140rpx;
+    height: 140rpx;
+    border: 1px solid #cdcdcd;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    overflow: hidden;
+    margin-right: 20rpx;
+}
+.list .center .left image{
+    width: 100%;
+    height: 100%;
+}
+.list .center .right{
+    height: 100%;
+    flex: 1;
+}
+.list .center .right .title{
+    widows: 100%;
+    height: 80rpx;
+    font-size: 28rpx;
+}
+.list .center .right .pricenum{
+    widows: 100%;
+    height: 60rpx;
+    font-size: 24rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.list .bottom{
+    height: 88rpx;
+    overflow: hidden;
+    font-size: 28rpx;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    align-items: center;
+    -webkit-align-items: center;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+}
+.list .bottom .totalprice{
+    font-size: 28rpx;
+}
+.list .bottom .totalprice text{
+    font-size: 24rpx;
+    color: #c88d6d;
+}

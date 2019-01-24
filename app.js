@@ -1,48 +1,50 @@
 //app.js
-var domainL = "https://api.lovecantouch.com";
-var domainLm = "http://www.lovecantouch.com/share/";
-//var domainL = "http://192.168.3.66:8000";
+import login from 'common/js/logs.js'
+let domainL = "https://api.lovecantouch.com";
+// let domainL = "http://apidev.lovecantouch.com";
+// var domainL = "http://192.168.3.66:8000";
+let domainLm = "http://www.lovecantouch.com/share/";
 App({
   onLaunch: function (path){
-    console.log("监听小程序初始化")
-    let that = this;
-    wx.login({
-      success: function (res) {
-        console.log(res)
-        if (res.code) {
-          //发起网络请求
-          wx.request({
-            url:"https://api.weixin.qq.com/sns/jscode2session",
-            data:{
-              appid:"wx432e28cb7b1a5037",
-              secret:"cf2ceb4608419e2403a92a6db9cb3da0",
-              js_code: res.code,
-              grant_type:"authorization_code"
-            },
-            method: "GET",
-            header: {
-              'content-type': 'application/json'
-            },
-            success: function (res) {
-              console.log(res.data)
-            }
-            // url: that.Interfaces.wechat_authorization,
-            // data: {
-            //   submit_code: res.code
-            // },
-            // method: "GET",
-            // header: {
-            //   'content-type': 'application/json'
-            // },
-            // success: function (res) {
-            //   console.log(res.data)
-            // }
+      // wx.showLoading({
+      //     title:'版本更新获取中',
+      //     mask:true
+      // });
+      const updateManager = wx.getUpdateManager();//版本更新
+      // updateManager.onCheckForUpdate(function (res) {
+      //     // 请求完新版本信息的回调
+      //     console.log(res.hasUpdate)
+      //    // wx.hideLoading();
+      // })
+      updateManager.onUpdateReady(function () {
+          wx.showModal({
+              title: '更新提示',
+              content: '新版本已经准备好，是否重启应用？',
+              success: function (res) {
+                  if (res.confirm) {
+                      // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+                      updateManager.applyUpdate()
+                  }
+              }
           })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    });
+      })
+      // updateManager.onUpdateFailed(function () {
+      //     // 新的版本下载失败
+      // })
+      // wx.checkSession({
+      //     success: function(){
+      //         //session_key 未过期，并且在本生命周期一直有效  直接获取用户信息
+      //         login.getUserInfo(function(){
+      //             // wx.switchTab({
+      //             //     url: "../../pages/index/index"
+      //             // })
+      //         })
+      //     },
+      //     fail: function(){
+      //         // session_key 已经失效，需要重新执行登录流程
+              login.wxlogin()
+      //     }
+      // })
   },
   onShow:function(){
     console.log("监听小程序显示")
@@ -57,51 +59,37 @@ App({
     console.log("页面不存在监听函数")
   },
   globalData: {
-    userInfo: null
+      userInfo: null,
+      appName:'随我个性珠宝',
+      logo:'login/logo.png',
+      version:'1.0.5',
+      companyName:'梦工场珠宝企业管理有限公司'
   },
   Interfaces: {
-    domainL,
-    domainLm,
-    index_htnk: domainL + "/news/index/",
-    wechat_authorization: domainL + "/frontend/wechat_authorization"
+      domainL,
+      domainLm,
+      index_htnk: domainL + "/news/index/",//首页
+      wechat_authorization: domainL + "/frontend/wechat_authorization",
+      jscode_session: domainL + "/frontend/wechat/miniprogram/jscode/session",
+      data_decrypt: domainL + "/frontend/wechat/miniprogram/data/decrypt",
+      customproducts: domainL + "/shopping/customproducts",//定制商品
+      series : domainL + "/series",//定制系列
+      customproducts_search:domainL + '/customproducts/search?q=',
+      cart_display: domainL + "/shopping/show/cart/",//查看购物车
+      cart_change: domainL + "/shopping/change/cart/",//修改购物车数量
+      cart_drop: domainL + "/shopping/drop/cart/",//删除购物车
+      confirm_order: domainL + "/shopping/confirm/order/",//确认订单信息
+      addressSearch: domainL + "/personal/sa_display",//收货地址列表
+      addressDelete: domainL + "/personal/sa_drop",//删除收获地址
+      addressUpdate: domainL + "/personal/sa_change",//编辑收获地址
+      addressAdd: domainL + "/personal/sa_addition",//添加新收获地址
+      addressDefault: domainL + "/personal/sa_default_address",//默认收货地址
+      phoneBindvcode: domainL + "/personal/phone_num_binding_vcode",//绑定手机号发送验证码：
+      phone_num_binding: domainL+ "/personal/phone_num_binding",//手机号绑定
+      addorder: domainL + "/shopping/add/order/",//生成订单
+      jsapi_prepay: domainL + "/order/wechatpay/jsapi/prepay",//支付
+      orderlist: domainL + "/order/",//订单信息
+      confirm_receipt: domainL + "/order/confirm/receipt/",//确认收货
+      coupon:domainL+'/coupons'//优惠券
   }
 })
-
-// App({
-//   onLaunch: function () {
-//     // 展示本地存储能力
-//     var logs = wx.getStorageSync('logs') || []
-//     logs.unshift(Date.now())
-//     wx.setStorageSync('logs', logs)
-
-//     // 登录
-//     wx.login({
-//       success: res => {
-//         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-//       }
-//     })
-//     // 获取用户信息
-//     wx.getSetting({
-//       success: res => {
-//         if (res.authSetting['scope.userInfo']) {
-//           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-//           wx.getUserInfo({
-//             success: res => {
-//               // 可以将 res 发送给后台解码出 unionId
-//               this.globalData.userInfo = res.userInfo
-
-//               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-//               // 所以此处加入 callback 以防止这种情况
-//               if (this.userInfoReadyCallback) {
-//                 this.userInfoReadyCallback(res)
-//               }
-//             }
-//           })
-//         }
-//       }
-//     })
-//   },
-//   globalData: {
-//     userInfo: null
-//   }
-// })

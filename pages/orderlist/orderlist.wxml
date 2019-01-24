@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="container">
+   <view class="nav">
+      <text class="{{index==0?'active':''}}" bindtap="togglenav" data-index="0">全部</text>
+      <text class="{{index==1?'active':''}}" bindtap="togglenav" data-index="1">待付款</text>
+      <text class="{{index==2?'active':''}}" bindtap="togglenav" data-index="2">待发货</text>
+      <text class="{{index==3?'active':''}}" bindtap="togglenav" data-index="3">待收货</text>
+      <text class="{{index==4?'active':''}}" bindtap="togglenav" data-index="4">已完成</text>
+   </view>
+   <swiper class="content" current="{{index}}" bindchange="toggleswiper">
+      <swiper-item class="list" wx:for="{{orderlist}}" wx:key="{{index}}">
+         <scroll-view scroll-y="true" class="scroll" wx:if="{{item.list.length>0}}">
+             <view class="item" wx:for="{{item.list}}" wx:key="{{item.id}}" data-index="{{index}}" data-order_serial_number="{{item.order_serial_number}}" bindtap="orderdetails">
+                <view class="top">
+                   <view class="time">{{item.create_date}}</view>
+                   <view class="order_status">
+                      <block wx:if="{{item.order_status==0}}">待付款</block>
+                      <block wx:elif ="{{item.order_status==1}}">待发货</block>
+                      <block wx:elif="{{item.order_status==2}}">已发货</block>
+                      <block wx:elif="{{item.order_status==3}}">已完成</block>
+                      <block wx:elif="{{item.order_status==4}}">已取消</block>
+                   </view>
+                </view>
+                <view class="center">
+                   <view class="left">
+                      <image
+                              mode="widthFix"
+                              class="nocheck"
+                              src="{{item.cartitem[0].sku.threedfileparams[0].img}}">
+                      </image>
+                   </view>
+                   <view class="right">
+                      <view class="title">{{item.cartitem[0].sku.name}}</view>
+                      <view class="pricenum">
+                         <view class="price">￥{{item.cartitem[0].sku.price}}</view>
+                         <view class="num">x{{item.cartitem[0].quantity}}</view>
+                      </view>
+                   </view>
+                </view>
+                <view class="bottom">
+                   <view class="totalprice">合计：<text>￥{{item.total_money}}</text></view>
+                </view>
+             </view>
+         </scroll-view>
+         <view wx:else>
+            <image class="kongimg" src="../../common/img/order/kongorder.png" mode="widthFix">
+            </image>
+            <view class="kongtext">暂无此类订单~</view>
+         </view>
+      </swiper-item>
+   </swiper>
+</view>

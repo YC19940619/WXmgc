@@ -1,0 +1,28 @@
+<view class="container">
+    <view class="receiver option">
+        <text class="left">收货人：</text>
+        <input class="right" type="text" maxlength="10" bindinput="getReceiver" placeholder="请输入收货人姓名" value="{{receiver}}"/>
+    </view>
+    <view class="phone_number option">
+        <text class="left">手机号：</text>
+        <input class="right" type="number" maxlength="11" bindinput="getPhone" placeholder="请输入收货人手机号" value="{{phone_number}}"/>
+    </view>
+    <view class="address option">
+        <text class="left">所在地区：</text>
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" class="right">
+            <view class="picker">
+                <block wx:if="{{region.length>0}}">
+                    {{region[0]}}-{{region[1]}}-{{region[2]}}
+                </block>
+                <block wx:else>
+                    请选择地区
+                </block>
+            </view>
+        </picker>
+    </view>
+    <view class="address_details option">
+        <text class="left">详细地址：</text>
+        <textarea  class="right" maxlength="100" bindinput="getAddressdetails" placeholder="请输入详细地址" value="{{address_details}}"/>
+    </view>
+    <view class="save" bindtap="saveaddress">保存收货地址</view>
+</view>

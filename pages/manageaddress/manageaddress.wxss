@@ -1,0 +1,103 @@
+.container{
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.list{
+  width: 100%;
+  flex: 1;
+  overflow: scroll;
+}
+.list .kongtext{
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 28rpx;
+}
+.list .kongimg{
+  display: block;
+  width: 350rpx;
+  margin: 150rpx auto 50rpx;
+}
+.list .item{
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #f6f6f6;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 25rpx 0
+}
+.item.active{
+  background: #faf8f9;
+}
+.item .left{
+  width: 100rpx;
+  height: 100rpx;
+}
+.item .left .default{
+  border: 1px solid #ccc;
+  color: #ccc;
+  display: block;
+  margin: 0 auto;
+  width: 75rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 24rpx;
+  border-radius: 3px;
+  transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+}
+.item.active .left .default{
+  border: 1px solid #C88D6D;
+  color: #C88D6D;
+}
+.item .center{
+  flex: 1;
+  margin-left: 20rpx;
+}
+.item .center .person{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #333333;
+  overflow: hidden;
+}
+.item .center .person .receiver{
+  float: left;
+}
+.item .center .person .phone_num{
+  float: left;
+  margin-left: 20rpx;
+}
+.item .center .detail_address {
+  height: auto;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+.item .right{
+  width: 100rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item .right .edit{
+  display: block;
+  width: 36rpx;
+}
+.add{
+  width: 80%;
+  height: 80rpx;
+  border-radius: 10rpx;
+  background: #c88d6d;
+  color: #fff;
+  margin: 20rpx auto;
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 80rpx;
+}

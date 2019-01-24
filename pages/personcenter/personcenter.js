@@ -1,48 +1,55 @@
 //index.js
 //获取应用实例
-// import util from '../../utils/util.js'
+import dataImg from '../../common/js/dataImg.js'
+import login from "../../common/js/logs";
 const app = getApp()
 Page({
-  data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    carousel_pictures: []
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
+    data: {
+        userInfo:{},
+        hasUserInfo:false,
+        personbj_url:'../../common/img/personcenter/personbj.png'
+    },
+    onShow: function () {
+        let userInfo = app.globalData.userInfo;
+        if (userInfo) {
+            this.setData({
+                userInfo
+            })
         }
-      })
+    },
+    bindViewTap: function(){
+        // wx.openSetting({
+        //     success: (res) => {
+        //         res.authSetting = {
+        //             "scope.userInfo": false,
+        //             "scope.userLocation": true
+        //         }
+        //     }
+        // })
+    },
+    gohref:function(e){
+        console.log(e)
+        var name = e.currentTarget.dataset.name;
+        login.getUserInfo(function(){
+            wx.navigateTo({
+                url: `../../pages/${name}/${name}`
+            })
+        })
+    },
+    gocoupon:function(){
+        let that = this;
+        login.getUserInfo(function(){
+            if(that.data.userInfo.phone_num.length>0){
+                wx.navigateTo({
+                    url: '../../pages/coupon/coupon'
+                })
+            }else{
+                wx.showToast({
+                    title: '绑定手机号才能查看优惠券哦！',
+                    icon: 'none',
+                    duration: 2000
+                })
+            }
+        })
     }
-    this.getData()
-  },
-  getUserInfo: function (e) {
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  }
 })

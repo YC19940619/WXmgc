@@ -1,0 +1,34 @@
+<view class="container">
+    <view class="nav">
+        <text class="{{currentTab == 0 ? 'active' : ''}}" data-currenttab="0" bindtap="toggleclass">一键授权</text>
+        <text class="{{currentTab == 1 ? 'active' : ''}}" data-currenttab="1" bindtap="toggleclass">手动绑定</text>
+    </view>
+    <view class="content">
+        <view class="getphone {{currentTab == 0 ? 'active' : ''}}" data-currenttab="0" bindtap="toggleclass">
+            <image class="logo" src="{{logo_image}}" >
+            </image>
+            <view class="title">{{appName}}</view>
+            <view class="notice">{{appName}}申请获取您的手机号</view>
+            <button class="getphonenumbtn" hover-class="hover" open-type="getPhoneNumber" bindgetuserinfo="bindgetphonenumber">授权</button>
+        </view>
+        <view class="getphone {{currentTab == 1 ? 'active' : ''}}" data-currenttab="1" bindtap="toggleclass">
+            <image class="logo" src="{{userInfo.head_image}}" >
+            </image>
+            <view class="title">{{userInfo.nickname}}</view>
+            <view class="entry">
+                <view class="phonenum">
+                    <text>手机号</text>
+                    <input placeholder="输入您的手机号" bindinput="inputphone" type="number" value="{{phone_num}}"/>
+                </view>
+                <view class="verificationcode">
+                    <text>验证码</text>
+                    <view class="verificationcodebox">
+                        <input placeholder="输入验证码" type="number" bindinput="inputverifica" value="{{verifica}}"/>
+                        <button disabled="{{disabled}}" bindtap="sendVerification" style="background-color:{{backgroundcolor}};color:{{color}};">{{verificabtn}}</button>
+                    </view>
+                </view>
+            </view>
+            <button class="getphonenumbtn" hover-class="hover" bindtap="getphonenumber">确定</button>
+        </view>
+    </view>
+</view>
